@@ -1,0 +1,12 @@
+{
+  "name": "flextable",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^7.0.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
