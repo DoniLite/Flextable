@@ -1,0 +1,12 @@
+/*
+ * Tailwind entry point compiled at build time (see package.json's "build"
+ * script) into a fully self-contained dist/styles.css — every utility class
+ * this package's components use is baked in, so consumers don't need
+ * Tailwind installed themselves. Just `import '@flextable/vue-ui/styles.css'`.
+ * Override any of @flextable/core's design-token --variables in your own
+ * stylesheet, loaded after this one, to re-theme the defaults.
+ */
+@import "tailwindcss";
+@import "@flextable/core/tokens.css";
+
+@source "./**/*.vue";
