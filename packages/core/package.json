@@ -1,0 +1,31 @@
+{
+  "name": "@flextable/core",
+  "version": "0.1.0",
+  "description": "Framework-agnostic core: column registry, sorting/filtering/pinning/pagination logic, error and i18n adapters shared by @flextable/react and @flextable/vue.",
+  "type": "module",
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tokens.css": "./dist/tokens.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json --outDir dist && cp src/tokens.css dist/tokens.css",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@tanstack/match-sorter-utils": "^8.19.4",
+    "@tanstack/table-core": "^8.20.0"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
