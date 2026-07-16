@@ -1,0 +1,38 @@
+{
+  "name": "@flextable/vue-crud",
+  "version": "0.1.0",
+  "description": "Optional CRUD-dialog glue for @flextable/vue: server pagination/filter composables, decoupled from any specific backend or store shape via injected adapters.",
+  "type": "module",
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/flextable-vue-crud.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && vue-tsc -p tsconfig.build.json --emitDeclarationOnly && vite build",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage",
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "@flextable/core": "workspace:*",
+    "@flextable/vue": "workspace:*",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@flextable/core": "workspace:*",
+    "@flextable/vue": "workspace:*",
+    "@tanstack/vue-table": "^8.20.0",
+    "@vue/test-utils": "^2.4.6",
+    "typescript": "^5.9.3",
+    "vite": "^6.0.0",
+    "vue": "^3.5.0",
+    "vue-tsc": "^3.3.7"
+  }
+}
