@@ -1,12 +1,31 @@
 {
   "name": "flextable",
-  "module": "index.ts",
+  "private": true,
   "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest",
-    "typescript": "^7.0.2"
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "bun run build:core && bun run build:mid && bun run build:crud",
+    "build:core": "bun run --filter '@flextable/core' build",
+    "build:mid": "bun run --filter '@flextable/react-ui' --filter '@flextable/vue-ui' --filter '@flextable/react' --filter '@flextable/vue' build",
+    "build:crud": "bun run --filter '@flextable/react-crud' --filter '@flextable/vue-crud' build",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage",
+    "typecheck": "bun run --filter '*' typecheck",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "bun run build && changeset publish"
   },
-  "peerDependencies": {
-    "typescript": "^5"
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.4",
+    "@changesets/cli": "^2.29.7",
+    "@happy-dom/global-registrator": "^15.11.7",
+    "@types/bun": "latest",
+    "@vue/compiler-sfc": "^3.5.0",
+    "typescript": "^7.0.2"
   }
 }
