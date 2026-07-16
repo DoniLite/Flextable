@@ -1,0 +1,48 @@
+{
+  "name": "@flextable/vue",
+  "version": "0.1.0",
+  "description": "Vue 3 data table built on TanStack Vue Table: FlexTable.vue, composables, and the Vue column-def render layer for @flextable/core's ColumnFactory.",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/flextable-vue.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && vue-tsc -p tsconfig.build.json --emitDeclarationOnly && vite build && tailwindcss -i src/styles.css -o dist/styles.css --minify",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage",
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "@flextable/core": "workspace:*",
+    "@tanstack/vue-table": "^8.20.0",
+    "vue": "^3.5.0"
+  },
+  "dependencies": {
+    "@flextable/vue-ui": "workspace:*",
+    "lucide-vue-next": "^0.475.0"
+  },
+  "devDependencies": {
+    "@flextable/core": "workspace:*",
+    "@tailwindcss/cli": "^4.3.2",
+    "@tanstack/vue-table": "^8.20.0",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/test-utils": "^2.4.6",
+    "tailwindcss": "^4.3.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.1.4",
+    "vite-plugin-dts": "^5.0.3",
+    "vue": "^3.5.0",
+    "vue-tsc": "^3.3.7"
+  }
+}
