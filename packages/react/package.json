@@ -1,0 +1,47 @@
+{
+  "name": "@flextable/react",
+  "version": "0.1.0",
+  "description": "React data table built on TanStack Table: FlexTable component, hooks, and the React column-def render layer for @flextable/core's ColumnFactory.",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json --outDir dist && tailwindcss -i src/styles.css -o dist/styles.css --minify",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "@flextable/core": "workspace:*",
+    "@tanstack/react-table": "^8.20.0",
+    "react": "^19.0.0"
+  },
+  "dependencies": {
+    "@flextable/react-ui": "workspace:*",
+    "lucide-react": "^1.24.0"
+  },
+  "devDependencies": {
+    "@flextable/core": "workspace:*",
+    "@tailwindcss/cli": "^4.3.2",
+    "@tanstack/react-table": "^8.20.0",
+    "@testing-library/react": "^16.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.3.2",
+    "typescript": "^7.0.2"
+  }
+}

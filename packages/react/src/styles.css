@@ -1,0 +1,11 @@
+/*
+ * Tailwind entry point compiled at build time (see package.json's "build"
+ * script) into a fully self-contained dist/styles.css — every utility class
+ * this package's own components use (independent of @flextable/react-ui's
+ * own compiled styles.css) is baked in. Consumers using both packages import
+ * both stylesheets — see the theming guide.
+ */
+@import "tailwindcss";
+@import "@flextable/core/tokens.css";
+
+@source "./**/*.tsx";
