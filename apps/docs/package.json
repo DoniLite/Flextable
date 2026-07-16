@@ -1,0 +1,40 @@
+{
+  "name": "docs",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/react": "^6.0.1",
+    "@astrojs/starlight": "^0.41.3",
+    "@astrojs/vue": "^7.0.1",
+    "@flextable/core": "workspace:*",
+    "@flextable/react": "workspace:*",
+    "@flextable/react-ui": "workspace:*",
+    "@flextable/vue": "workspace:*",
+    "@flextable/vue-ui": "workspace:*",
+    "@tanstack/react-table": "^8.20.0",
+    "@tanstack/vue-table": "^8.20.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^7.0.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "sharp": "^0.34.5",
+    "vue": "^3.5.39"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "starlight-typedoc": "^0.23.0",
+    "typedoc": "^0.28.20",
+    "typedoc-plugin-markdown": "^4.12.0",
+    "typescript": "^5.9.3"
+  }
+}

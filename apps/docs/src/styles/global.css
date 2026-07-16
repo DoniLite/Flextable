@@ -1,0 +1,10 @@
+/*
+ * Each FlexTable package ships a fully self-contained, precompiled
+ * styles.css (Tailwind is baked in at each package's own build time) — no
+ * Tailwind setup is needed here, just import what this site actually uses.
+ * See the "Theming & styling" guide for what a real consumer app does.
+ */
+@import "@flextable/react-ui/styles.css";
+@import "@flextable/react/styles.css";
+@import "@flextable/vue-ui/styles.css";
+@import "@flextable/vue/styles.css";

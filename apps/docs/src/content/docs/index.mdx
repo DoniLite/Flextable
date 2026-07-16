@@ -1,0 +1,55 @@
+---
+title: FlexTable
+description: A framework-agnostic OOP core for data tables, with idiomatic React and Vue bindings.
+template: splash
+hero:
+  tagline: One column model, two idiomatic bindings. Build data tables with React or Vue on top of a shared, framework-agnostic OOP core.
+  actions:
+    - text: Get started with React
+      link: /guides/getting-started-react/
+      icon: right-arrow
+    - text: Get started with Vue
+      link: /guides/getting-started-vue/
+      icon: right-arrow
+    - text: Live demo
+      link: /guides/live-demo/
+      icon: laptop
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Why FlexTable
+
+<CardGrid stagger>
+	<Card title="Framework-agnostic core" icon="puzzle">
+		`@flextable/core` holds the `ColumnFactory`, `ApiError`, `PaginationController` classes and every
+		sorting/filtering/pagination helper — zero React, zero Vue. `@flextable/react` and `@flextable/vue`
+		are thin bindings on top of it.
+	</Card>
+	<Card title="Extensible column model" icon="add-document">
+		Nine built-in column kinds (select, avatar, name, text, date, count, badge, actions, expandRow) plus
+		`registerColumnType()` as a plugin escape hatch for anything the built-ins don't cover.
+	</Card>
+	<Card title="Bring your own everything" icon="setting">
+		Translation function, notification callback, backend error-code adapter and every UI primitive are
+		injected, not hardcoded — the default `@flextable/react-ui` / `@flextable/vue-ui` primitives are
+		fully overridable per column or per table.
+	</Card>
+	<Card title="Optional CRUD glue" icon="rocket">
+		`@flextable/react-crud` and `@flextable/vue-crud` add server pagination/filter handlers and entity
+		editor state as separate opt-in packages — the core table packages stay dependency-light.
+	</Card>
+</CardGrid>
+
+## Packages
+
+| Package | What it is |
+| --- | --- |
+| `@flextable/core` | Framework-agnostic classes, types and helpers. Zero framework dependencies. |
+| `@flextable/react` | `FlexTable` component, hooks and the `toReactColumnDef` render layer. |
+| `@flextable/react-ui` | Default Radix-based primitives (Button, Badge, Avatar, DropdownMenu, entity components). |
+| `@flextable/react-crud` | `useEntityEditor` / `useStoreAsyncOperations`, generalized and backend-agnostic. |
+| `@flextable/vue` | `FlexTable.vue` SFC, composables and the `toVueColumnDef` render layer. |
+| `@flextable/vue-ui` | Default reka-ui-based primitives, mirroring `@flextable/react-ui`. |
+| `@flextable/vue-crud` | `useTableServerFilters` / `useTableServerPaginationHandler`, the Vue-side CRUD glue. |

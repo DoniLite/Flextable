@@ -1,0 +1,40 @@
+---
+title: Live demo
+description: The same dataset and the same column kinds, rendered with @flextable/react and @flextable/vue side by side.
+---
+
+import ReactTableDemo from '../../../components/demo/ReactTableDemo';
+import VueTableDemo from '../../../components/demo/VueTableDemo.vue';
+
+Both tables below render the same twelve mock users through every built-in column kind — select,
+avatar, name (with description), two badge variants, count, date, updated, expandRow and actions —
+one instance built with `@flextable/react` + `@flextable/react-ui`, the other with `@flextable/vue`
++ `@flextable/vue-ui`. Try sorting a column, searching, selecting rows, or expanding a row on each.
+
+## React
+
+{/* `not-content` opts this out of Starlight's own markdown-table CSS (which
+    zeroes first/last cell padding for prose tables) — without it, Starlight's
+    higher-specificity selectors override FlexTable's own cell padding. */}
+<div class="not-content">
+  <ReactTableDemo client:load />
+</div>
+
+## Vue
+
+<div class="not-content">
+  <VueTableDemo client:load />
+</div>
+
+## What's the same, what's different
+
+The `ColumnFactory` calls building these two tables are close to identical — same methods, same
+options, same mock data. The only per-framework differences are:
+
+- `toReactColumnDef()` vs. `toVueColumnDef()` to turn `ColumnConfig`s into real `ColumnDef`s.
+- `@flextable/react-ui` vs. `@flextable/vue-ui` supplying the default cell components.
+- Reading the full source for each is the fastest way to see exactly how little changes between
+  the two bindings — see
+  [`ReactTableDemo.tsx`](https://github.com/DoniLite/Flextable/blob/main/apps/docs/src/components/demo/ReactTableDemo.tsx)
+  and
+  [`VueTableDemo.vue`](https://github.com/DoniLite/Flextable/blob/main/apps/docs/src/components/demo/VueTableDemo.vue).
