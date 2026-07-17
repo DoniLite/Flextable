@@ -2,6 +2,24 @@
   "name": "@flextable/react",
   "version": "0.1.0",
   "description": "React data table built on TanStack Table: FlexTable component, hooks, and the React column-def render layer for @flextable/core's ColumnFactory.",
+  "keywords": [
+    "react",
+    "table",
+    "datatable",
+    "tanstack-table",
+    "flextable"
+  ],
+  "license": "Apache-2.0",
+  "author": "DoniLite",
+  "homepage": "https://donilite.github.io/Flextable",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoniLite/Flextable.git",
+    "directory": "packages/react"
+  },
+  "bugs": {
+    "url": "https://github.com/DoniLite/Flextable/issues"
+  },
   "type": "module",
   "sideEffects": [
     "*.css"

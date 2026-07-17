@@ -2,6 +2,23 @@
   "name": "@flextable/react-crud",
   "version": "0.1.0",
   "description": "Optional CRUD-dialog glue for @flextable/react: entity editor and async-store hooks, decoupled from any specific backend or toast library via injected adapters.",
+  "keywords": [
+    "react",
+    "crud",
+    "table",
+    "flextable"
+  ],
+  "license": "Apache-2.0",
+  "author": "DoniLite",
+  "homepage": "https://donilite.github.io/Flextable",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoniLite/Flextable.git",
+    "directory": "packages/react-crud"
+  },
+  "bugs": {
+    "url": "https://github.com/DoniLite/Flextable/issues"
+  },
   "type": "module",
   "sideEffects": false,
   "types": "./dist/index.d.ts",

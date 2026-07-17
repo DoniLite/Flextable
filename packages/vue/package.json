@@ -2,6 +2,24 @@
   "name": "@flextable/vue",
   "version": "0.1.0",
   "description": "Vue 3 data table built on TanStack Vue Table: FlexTable.vue, composables, and the Vue column-def render layer for @flextable/core's ColumnFactory.",
+  "keywords": [
+    "vue",
+    "table",
+    "datatable",
+    "tanstack-table",
+    "flextable"
+  ],
+  "license": "Apache-2.0",
+  "author": "DoniLite",
+  "homepage": "https://donilite.github.io/Flextable",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoniLite/Flextable.git",
+    "directory": "packages/vue"
+  },
+  "bugs": {
+    "url": "https://github.com/DoniLite/Flextable/issues"
+  },
   "type": "module",
   "sideEffects": [
     "*.css"
