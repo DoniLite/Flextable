@@ -1,6 +1,6 @@
 {
   "name": "@flextable/core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Framework-agnostic core: column registry, sorting/filtering/pinning/pagination logic, error and i18n adapters shared by @flextable/react and @flextable/vue.",
   "keywords": [
     "table",

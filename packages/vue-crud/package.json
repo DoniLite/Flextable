@@ -1,6 +1,6 @@
 {
   "name": "@flextable/vue-crud",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Optional CRUD-dialog glue for @flextable/vue: server pagination/filter composables, decoupled from any specific backend or store shape via injected adapters.",
   "keywords": [
     "vue",
