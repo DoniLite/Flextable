@@ -23,7 +23,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.5.4",
     "@changesets/cli": "^2.29.7",
-    "@happy-dom/global-registrator": "^15.11.7",
+    "@happy-dom/global-registrator": "^20.10.6",
     "@types/bun": "latest",
     "@vue/compiler-sfc": "^3.5.0",
     "typescript": "^7.0.2"
