@@ -2,6 +2,23 @@
   "name": "@flextable/vue-crud",
   "version": "0.1.0",
   "description": "Optional CRUD-dialog glue for @flextable/vue: server pagination/filter composables, decoupled from any specific backend or store shape via injected adapters.",
+  "keywords": [
+    "vue",
+    "crud",
+    "table",
+    "flextable"
+  ],
+  "license": "Apache-2.0",
+  "author": "DoniLite",
+  "homepage": "https://donilite.github.io/Flextable",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoniLite/Flextable.git",
+    "directory": "packages/vue-crud"
+  },
+  "bugs": {
+    "url": "https://github.com/DoniLite/Flextable/issues"
+  },
   "type": "module",
   "sideEffects": false,
   "types": "./dist/index.d.ts",
@@ -30,8 +47,8 @@
     "@flextable/vue": "workspace:*",
     "@tanstack/vue-table": "^8.20.0",
     "@vue/test-utils": "^2.4.6",
-    "typescript": "^5.9.3",
-    "vite": "^6.0.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.5",
     "vue": "^3.5.0",
     "vue-tsc": "^3.3.7"
   }

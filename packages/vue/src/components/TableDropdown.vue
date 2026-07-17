@@ -6,8 +6,8 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from '@flextable/vue-ui';
+import { ChevronDown, ChevronUp } from '@lucide/vue';
 import type { Column, Table } from '@tanstack/vue-table';
-import { ChevronDown, ChevronUp } from 'lucide-vue-next';
 import { ref } from 'vue';
 
 export interface TableDropdownProps<TData> {

@@ -15,8 +15,8 @@ import {
   EntityAvatar,
   EntityTitle,
 } from '@flextable/vue-ui';
+import { ChevronDown, ChevronRight, Trash2 } from '@lucide/vue';
 import type { ColumnDef } from '@tanstack/vue-table';
-import { ChevronDown, ChevronRight, Trash2 } from 'lucide-vue-next';
 import type { Component } from 'vue';
 import { h } from 'vue';
 import { sortableHeader } from './helpers/sortableHeader';

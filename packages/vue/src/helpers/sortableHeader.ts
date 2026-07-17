@@ -1,6 +1,6 @@
 import { Button } from '@flextable/vue-ui';
+import { ArrowDown, ArrowUp, ArrowUpDown } from '@lucide/vue';
 import type { Column, SortDirection } from '@tanstack/vue-table';
-import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-vue-next';
 import type { VNode } from 'vue';
 import { h } from 'vue';
 

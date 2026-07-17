@@ -2,6 +2,25 @@
   "name": "@flextable/vue-ui",
   "version": "0.1.0",
   "description": "Self-sufficient default Vue UI primitives (reka-ui-based Button/Badge/Checkbox/Avatar/DropdownMenu/...) and entity components for @flextable/vue, fully overridable via slots.",
+  "keywords": [
+    "vue",
+    "ui",
+    "components",
+    "reka-ui",
+    "table",
+    "flextable"
+  ],
+  "license": "Apache-2.0",
+  "author": "DoniLite",
+  "homepage": "https://donilite.github.io/Flextable",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoniLite/Flextable.git",
+    "directory": "packages/vue-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/DoniLite/Flextable/issues"
+  },
   "type": "module",
   "sideEffects": [
     "*.css"
@@ -28,19 +47,19 @@
   },
   "dependencies": {
     "@flextable/core": "workspace:*",
+    "@lucide/vue": "^1.24.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-vue-next": "^0.475.0",
     "reka-ui": "^2.3.1",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.2",
-    "@vitejs/plugin-vue": "^5.2.0",
+    "@vitejs/plugin-vue": "^6.0.8",
     "@vue/test-utils": "^2.4.6",
     "tailwindcss": "^4.3.2",
-    "typescript": "^5.9.3",
-    "vite": "^6.0.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.5",
     "vue": "^3.5.0",
     "vue-tsc": "^3.3.7"
   }

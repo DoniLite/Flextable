@@ -2,6 +2,25 @@
   "name": "@flextable/core",
   "version": "0.1.0",
   "description": "Framework-agnostic core: column registry, sorting/filtering/pinning/pagination logic, error and i18n adapters shared by @flextable/react and @flextable/vue.",
+  "keywords": [
+    "table",
+    "datatable",
+    "flextable",
+    "column-factory",
+    "typescript",
+    "framework-agnostic"
+  ],
+  "license": "Apache-2.0",
+  "author": "DoniLite",
+  "homepage": "https://donilite.github.io/Flextable",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoniLite/Flextable.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/DoniLite/Flextable/issues"
+  },
   "type": "module",
   "sideEffects": false,
   "types": "./dist/index.d.ts",

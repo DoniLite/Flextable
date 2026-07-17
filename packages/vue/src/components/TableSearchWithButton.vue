@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { FlexTableKeys, TranslateFn } from '@flextable/core';
 import { cn, Input } from '@flextable/vue-ui';
-import { Search, X } from 'lucide-vue-next';
+import { Search, X } from '@lucide/vue';
 import { computed, inject, ref, useId, watch } from 'vue';
 import { TABLE_LOADING_STATE_KEY } from '../composables/tableLoadingState';
 import { useDebounceFn } from '../composables/useDebounceFn';

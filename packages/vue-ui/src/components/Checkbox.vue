@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon } from 'lucide-vue-next';
+import { CheckIcon } from '@lucide/vue';
 import { CheckboxIndicator, CheckboxRoot } from 'reka-ui';
 import { computed } from 'vue';
 import { cn } from '../lib/cn';

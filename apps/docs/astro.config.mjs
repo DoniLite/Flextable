@@ -44,6 +44,8 @@ const typeDocPlugins = packages.map(({ name, label }) => {
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://donilite.github.io',
+  base: '/Flextable',
   integrations: [
     starlight({
       title: 'FlexTable',
