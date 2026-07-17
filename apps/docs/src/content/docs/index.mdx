@@ -5,14 +5,20 @@ template: splash
 hero:
   tagline: One column model, two idiomatic bindings. Build data tables with React or Vue on top of a shared, framework-agnostic OOP core.
   actions:
+    # Starlight's Hero passes `link` straight through as `href` — it does not
+    # apply astro.config.mjs's `base` the way asset paths and the sidebar do
+    # (see @astrojs/starlight/components/Hero.astro). A relative path
+    # ("guides/...") works when the current URL has a trailing slash, but
+    # resolves wrong from the bare "/Flextable" (no trailing slash) — so the
+    # base is hardcoded here rather than left to relative-URL resolution.
     - text: Get started with React
-      link: /guides/getting-started-react/
+      link: /Flextable/guides/getting-started-react/
       icon: right-arrow
     - text: Get started with Vue
-      link: /guides/getting-started-vue/
+      link: /Flextable/guides/getting-started-vue/
       icon: right-arrow
     - text: Live demo
-      link: /guides/live-demo/
+      link: /Flextable/guides/live-demo/
       icon: laptop
       variant: minimal
 ---
