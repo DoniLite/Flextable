@@ -1,6 +1,6 @@
 {
   "name": "@flextable/vue",
-  "version": "1.0.0",
+  "version": "0.1.2",
   "description": "Vue 3 data table built on TanStack Vue Table: FlexTable.vue, composables, and the Vue column-def render layer for @flextable/core's ColumnFactory.",
   "keywords": [
     "vue",

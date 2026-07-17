@@ -1,6 +1,6 @@
 {
   "name": "@flextable/react",
-  "version": "1.0.0",
+  "version": "0.1.2",
   "description": "React data table built on TanStack Table: FlexTable component, hooks, and the React column-def render layer for @flextable/core's ColumnFactory.",
   "keywords": [
     "react",
