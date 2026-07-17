@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon } from 'lucide-vue-next';
+import { CheckIcon } from '@lucide/vue';
 import {
   DropdownMenuItemIndicator,
   DropdownMenuCheckboxItem as RekaDropdownMenuCheckboxItem,

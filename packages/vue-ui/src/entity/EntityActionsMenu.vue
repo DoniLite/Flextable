@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="T extends { id: string | number }">
 import type { CustomActionConfig } from '@flextable/core';
-import { EllipsisVertical } from 'lucide-vue-next';
+import { EllipsisVertical } from '@lucide/vue';
 import { DropdownMenuRoot as DropdownMenu } from 'reka-ui';
 import type { VNode } from 'vue';
 import { computed } from 'vue';

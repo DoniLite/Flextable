@@ -16,7 +16,7 @@ import {
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { computed, inject } from 'vue';
 import { TABLE_LOADING_STATE_KEY } from '../composables/tableLoadingState';
 
