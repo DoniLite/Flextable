@@ -36,9 +36,6 @@ markdown file under `.changeset/`. Commit that file as part of the PR. One chang
 multiple packages if the change touches more than one (e.g. a `core` change that also affects
 `react` and `vue`).
 
-Packages that have never been published yet don't need a changeset for their first release — see
-[First release of a package](#first-release-of-a-package) below.
-
 ## Cutting a release
 
 1. Merge PRs with their changesets as normal. `version.yml` keeps the "Version Packages" PR
@@ -50,7 +47,7 @@ Packages that have never been published yet don't need a changeset for their fir
 
    ```sh
    git checkout main && git pull
-   git tag v0.2.0   # match whatever version(s) the Version PR just set
+   git tag v0.2.0   # highest version the Version PR just bumped — see "Release tag naming" below
    git push origin v0.2.0
    ```
 
@@ -61,13 +58,20 @@ Packages that have never been published yet don't need a changeset for their fir
    (auto-generated notes; skipped if a release for that tag already exists, so re-running the
    workflow after a partial failure is safe).
 
-## First release of a package
+## Release tag naming
 
-A package that has never been published doesn't have a "previous version" for a changeset to bump
-from — its version in `package.json` (currently `0.1.0` for all seven packages) is the intended
-first-publish version directly, not something Changesets manages. Tag and push as in step 3 above
-to publish it for the first time; start using changesets for that package from its *next* change
-onward.
+One tag names a release *batch* — everything published in a single `release.yml` run — not any
+single package's version. Packages in this monorepo version independently via Changesets (there
+are no `fixed`/`linked` groups in `.changeset/config.json`), so the packages included in one batch
+can end up on different version numbers.
+
+- Tag format: `vX.Y.Z`, matching semver, with no `@flextable/*` package prefix.
+- Use the **highest** version number among the packages the Version Packages PR just bumped. For
+  example, if that PR bumps `@flextable/react` from `0.1.2` to `0.1.3` and leaves
+  `@flextable/core` at `0.1.2`, tag `v0.1.3` — not `v0.1.2`, and not a tag per package.
+- Don't expect every package to be on the tag's version afterward. Check each package's own
+  `package.json`/`CHANGELOG.md`, or its listing on npm, for what it actually published. The tag
+  and the GitHub Release it creates are a batch marker, not a per-package version pointer.
 
 ## One-time setup: npm Trusted Publisher
 
@@ -81,16 +85,3 @@ auth, then switch it over to trusted publishing for every subsequent release).
 Also confirm the `@flextable` npm org/scope used throughout `package.json` is one you actually
 own — it's a placeholder chosen early in the migration and is trivial to rename before the first
 real publish, but should be settled before setting up trusted publishers.
-
-## Dry-running a release
-
-Before the very first real publish, do a dry run to catch packaging problems without actually
-publishing:
-
-```sh
-bun run build
-cd packages/core && npm publish --dry-run --provenance
-```
-
-Repeat per package, or adapt into a loop. `--dry-run` performs every step (packing, provenance
-attestation) except the actual upload.
