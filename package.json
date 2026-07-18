@@ -29,7 +29,7 @@
     "lint:fix": "biome check --write .",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "bun run build && bun run scripts/rewrite-workspace-protocol.ts && changeset publish"
+    "release": "bun run build && bun run scripts/rewrite-workspace-protocol.ts && bun run scripts/publish-with-retry.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.4",

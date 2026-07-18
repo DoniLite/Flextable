@@ -20,6 +20,16 @@ Versioning and publishing are two deliberately separate steps, driven by two wor
    npm via [OIDC trusted publishing](https://docs.npmjs.com/trusted-publishers) (no `NPM_TOKEN`
    secret involved), and creates a GitHub Release for the pushed tag.
 
+   `changeset publish` runs every package's `npm publish` concurrently, and npm's
+   provenance/attestation step under OIDC trusted publishing is prone to occasional transient
+   failures at that concurrency — one package erroring fails the whole `changeset publish`
+   command even after other packages (or that same one) already landed on npm.
+   [`scripts/publish-with-retry.ts`](scripts/publish-with-retry.ts) retries the publish step a few
+   times before giving up; this is safe because `changeset publish` only ever attempts packages
+   whose local version isn't already on npm. If the job still fails after retries, check which
+   package(s) actually made it to npm before re-running — publishing is idempotent, so re-running
+   the workflow (or `bun run release` locally) is safe.
+
 Merging the Version PR bumps versions on `main` but doesn't release anything by itself — pushing a
 tag is the deliberate "go" moment.
 
