@@ -1,5 +1,13 @@
 # @flextable/react-crud
 
+## 0.1.3
+
+### Patch Changes
+
+- fc784a2: Fix `workspace:*` dependency specifiers leaking into published packages, which made `npm install` fail for consumers with errors like `Workspace dependency "@flextable/core" not found`. `changeset publish` falls back to plain `npm publish` for Bun workspaces (it only rewrites workspace ranges for pnpm), so the release workflow now resolves `workspace:*` to real versions before publishing.
+- Updated dependencies [fc784a2]
+  - @flextable/react@0.1.3
+
 ## 0.1.2
 
 ### Minor Changes
