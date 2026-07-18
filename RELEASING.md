@@ -20,15 +20,18 @@ Versioning and publishing are two deliberately separate steps, driven by two wor
    npm via [OIDC trusted publishing](https://docs.npmjs.com/trusted-publishers) (no `NPM_TOKEN`
    secret involved), and creates a GitHub Release for the pushed tag.
 
-   `changeset publish` runs every package's `npm publish` concurrently, and npm's
-   provenance/attestation step under OIDC trusted publishing is prone to occasional transient
-   failures at that concurrency — one package erroring fails the whole `changeset publish`
-   command even after other packages (or that same one) already landed on npm.
-   [`scripts/publish-with-retry.ts`](scripts/publish-with-retry.ts) retries the publish step a few
-   times before giving up; this is safe because `changeset publish` only ever attempts packages
-   whose local version isn't already on npm. If the job still fails after retries, check which
-   package(s) actually made it to npm before re-running — publishing is idempotent, so re-running
-   the workflow (or `bun run release` locally) is safe.
+   `changeset publish` decides what needs publishing via `npm info`, which can occasionally return
+   stale/empty data for a package that's actually already on npm. When that happens it attempts to
+   republish, npm correctly rejects it, and `changeset publish`'s own recovery path for that exact
+   case is broken against the npm version this workflow installs (`npm install -g npm@latest`, for
+   OIDC support) — so a harmless "already published" case escalates into a fatal error for the
+   *whole* publish command, even after every real package already landed. This happened releasing
+   `v0.1.3`: all 6 changed packages published fine, but a stale `npm info @flextable/core` read
+   triggered a redundant publish attempt that failed and killed the job before the GitHub Release
+   step ran. [`scripts/publish-with-retry.ts`](scripts/publish-with-retry.ts) retries the publish
+   step a few times before giving up; this is safe because `changeset publish` only ever attempts
+   packages whose local version isn't already on npm, so a retry (or a manual re-run of the
+   workflow, or `bun run release` locally) is a no-op for anything that already succeeded.
 
 Merging the Version PR bumps versions on `main` but doesn't release anything by itself — pushing a
 tag is the deliberate "go" moment.

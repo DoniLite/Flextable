@@ -1,17 +1,27 @@
 #!/usr/bin/env bun
 /**
- * `changeset publish` runs each package's `npm publish` concurrently (up to
- * 10 at once — @changesets/cli's hardcoded NPM_PUBLISH_CONCURRENCY_LIMIT),
- * and npm trusted publishing's provenance/attestation step is prone to
- * transient failures under that concurrency. When a single `npm publish`
- * call fails that way, changesets treats it as fatal for the whole command
- * and exits non-zero — even when every other package (and often the
- * "failed" one too) already landed on the registry, stranding the rest of
- * the release pipeline (e.g. the GitHub Release step) unrun.
+ * `changeset publish` decides which packages still need publishing by
+ * running `npm info <pkg>` first; that pre-check can return stale/empty
+ * data for a package that's actually already on the registry (a documented
+ * @changesets/cli caveat). When that happens it attempts to publish anyway,
+ * npm correctly rejects it ("cannot publish over the previously published
+ * version"), and @changesets/cli is *supposed* to recognize that specific
+ * rejection and downgrade it to a no-op — but that recovery path only fires
+ * when npm's `--json` error output sets `error.code === "E403"`, which the
+ * npm version installed in CI (`npm install -g npm@latest`, required for
+ * OIDC trusted publishing) doesn't appear to set. So a harmless, expected
+ * "already published, skip" case instead surfaces as `result: "failed"`,
+ * which @changesets/cli treats as fatal for the *whole* publish command —
+ * even though every other package (and the misdetected one too) already
+ * published successfully. That's exactly what happened releasing v0.1.3:
+ * all 6 changed packages landed on npm, but a stale `npm info
+ * @flextable/core` read triggered a redundant publish attempt that got
+ * rejected, and the whole job died before the GitHub Release step ran.
  *
  * Retrying is safe: changeset publish only ever attempts packages whose
  * local version isn't already published, so a retry is a no-op for
- * anything that already succeeded.
+ * anything that already succeeded (as confirmed against the npm registry
+ * after the v0.1.3 failure).
  */
 const MAX_ATTEMPTS = 3;
 const RETRY_DELAY_MS = 15_000;
