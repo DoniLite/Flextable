@@ -13,9 +13,12 @@ Versioning and publishing are two deliberately separate steps, driven by two wor
    updates) a **"Version Packages" pull request** that bumps the affected packages' versions and
    writes their `CHANGELOG.md` entries. It never publishes anything.
 2. **[`release.yml`](.github/workflows/release.yml)** runs only when a **tag is pushed** — not on
-   every merge to `main`. It builds, typechecks, tests, and publishes to npm via
-   [OIDC trusted publishing](https://docs.npmjs.com/trusted-publishers) (no `NPM_TOKEN` secret
-   involved).
+   every merge to `main`. It builds, typechecks, tests, rewrites `workspace:*` internal
+   dependencies to real versions (see
+   [`scripts/rewrite-workspace-protocol.ts`](scripts/rewrite-workspace-protocol.ts) — required
+   because `changeset publish` only does this rewrite natively for pnpm, not Bun), publishes to
+   npm via [OIDC trusted publishing](https://docs.npmjs.com/trusted-publishers) (no `NPM_TOKEN`
+   secret involved), and creates a GitHub Release for the pushed tag.
 
 Merging the Version PR bumps versions on `main` but doesn't release anything by itself — pushing a
 tag is the deliberate "go" moment.
@@ -54,7 +57,9 @@ Packages that have never been published yet don't need a changeset for their fir
    `release.yml` triggers on **any** tag push (not just `v*`), so use a real version-shaped tag
    name to avoid confusing an unrelated tag with a release trigger.
 4. Watch the `Release` workflow run in the Actions tab. It publishes every package whose local
-   version is ahead of what's on npm.
+   version is ahead of what's on npm, then creates a GitHub Release for the pushed tag
+   (auto-generated notes; skipped if a release for that tag already exists, so re-running the
+   workflow after a partial failure is safe).
 
 ## First release of a package
 
